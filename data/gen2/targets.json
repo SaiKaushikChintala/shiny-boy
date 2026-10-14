@@ -1,0 +1,293 @@
+{
+ "gold": {
+  "targets": {
+   "lugia": {
+    "label": "Lugia",
+    "kind": "static",
+    "species": 249,
+    "intro": ""
+   },
+   "ho-oh": {
+    "label": "Ho-Oh",
+    "kind": "static",
+    "species": 250,
+    "intro": ""
+   },
+   "snorlax": {
+    "label": "Snorlax (Vermilion)",
+    "kind": "static",
+    "species": 143,
+    "intro": "",
+    "variety": 12
+   },
+   "tyrogue": {
+    "label": "Tyrogue (Mt. Mortar)",
+    "kind": "gift",
+    "species": 236,
+    "intro": "",
+    "variety": 12
+   },
+   "togepi_egg": {
+    "label": "Togepi egg",
+    "kind": "gift",
+    "species": 253,
+    "intro": "",
+    "variety": 12
+   },
+   "shuckle": {
+    "label": "Shuckle",
+    "kind": "gift",
+    "species": 213,
+    "intro": "",
+    "variety": 12
+   },
+   "prize_abra": {
+    "label": "Abra (Game Corner)",
+    "kind": "gift",
+    "species": 63,
+    "intro": "prize:0",
+    "variety": 12
+   },
+   "prize_ekans": {
+    "label": "Ekans (Game Corner)",
+    "kind": "gift",
+    "species": 23,
+    "intro": "prize:1",
+    "variety": 12
+   },
+   "prize_dratini": {
+    "label": "Dratini (Game Corner)",
+    "kind": "gift",
+    "species": 147,
+    "intro": "prize:2",
+    "variety": 12
+   },
+   "prize_mr__mime": {
+    "label": "Mr. Mime (Game Corner)",
+    "kind": "gift",
+    "species": 122,
+    "intro": "prize:0",
+    "variety": 12
+   },
+   "prize_eevee": {
+    "label": "Eevee (Celadon prize)",
+    "kind": "gift",
+    "species": 133,
+    "intro": "prize:1",
+    "variety": 12
+   },
+   "prize_porygon": {
+    "label": "Porygon (Game Corner)",
+    "kind": "gift",
+    "species": 137,
+    "intro": "prize:2",
+    "variety": 12
+   }
+  }
+ },
+ "silver": {
+  "targets": {
+   "lugia": {
+    "label": "Lugia",
+    "kind": "static",
+    "species": 249,
+    "intro": ""
+   },
+   "ho-oh": {
+    "label": "Ho-Oh",
+    "kind": "static",
+    "species": 250,
+    "intro": ""
+   },
+   "snorlax": {
+    "label": "Snorlax (Vermilion)",
+    "kind": "static",
+    "species": 143,
+    "intro": "",
+    "variety": 12
+   },
+   "tyrogue": {
+    "label": "Tyrogue (Mt. Mortar)",
+    "kind": "gift",
+    "species": 236,
+    "intro": "",
+    "variety": 12
+   },
+   "togepi_egg": {
+    "label": "Togepi egg",
+    "kind": "gift",
+    "species": 253,
+    "intro": "",
+    "variety": 12
+   },
+   "shuckle": {
+    "label": "Shuckle",
+    "kind": "gift",
+    "species": 213,
+    "intro": "",
+    "variety": 12
+   },
+   "prize_abra": {
+    "label": "Abra (Game Corner)",
+    "kind": "gift",
+    "species": 63,
+    "intro": "prize:0",
+    "variety": 12
+   },
+   "prize_sandshrew": {
+    "label": "Sandshrew (Game Corner)",
+    "kind": "gift",
+    "species": 27,
+    "intro": "prize:1",
+    "variety": 12
+   },
+   "prize_dratini": {
+    "label": "Dratini (Game Corner)",
+    "kind": "gift",
+    "species": 147,
+    "intro": "prize:2",
+    "variety": 12
+   },
+   "prize_mr__mime": {
+    "label": "Mr. Mime (Game Corner)",
+    "kind": "gift",
+    "species": 122,
+    "intro": "prize:0",
+    "variety": 12
+   },
+   "prize_eevee": {
+    "label": "Eevee (Celadon prize)",
+    "kind": "gift",
+    "species": 133,
+    "intro": "prize:1",
+    "variety": 12
+   },
+   "prize_porygon": {
+    "label": "Porygon (Game Corner)",
+    "kind": "gift",
+    "species": 137,
+    "intro": "prize:2",
+    "variety": 12
+   }
+  }
+ },
+ "crystal": {
+  "targets": {
+   "lugia": {
+    "label": "Lugia",
+    "kind": "static",
+    "species": 249,
+    "intro": ""
+   },
+   "ho-oh": {
+    "label": "Ho-Oh",
+    "kind": "static",
+    "species": 250,
+    "intro": ""
+   },
+   "celebi": {
+    "label": "Celebi",
+    "kind": "static",
+    "species": 251,
+    "intro": ""
+   },
+   "suicune_tower": {
+    "label": "Suicune (Tin Tower)",
+    "kind": "static",
+    "species": 245,
+    "intro": "door"
+   },
+   "snorlax": {
+    "label": "Snorlax (Vermilion)",
+    "kind": "static",
+    "species": 143,
+    "intro": "",
+    "variety": 12
+   },
+   "tyrogue": {
+    "label": "Tyrogue (Mt. Mortar)",
+    "kind": "gift",
+    "species": 236,
+    "intro": "",
+    "variety": 12
+   },
+   "togepi_egg": {
+    "label": "Togepi egg",
+    "kind": "gift",
+    "species": 253,
+    "intro": "",
+    "variety": 12
+   },
+   "odd_egg": {
+    "label": "Odd Egg",
+    "kind": "gift",
+    "species": 253,
+    "intro": "",
+    "variety": 2
+   },
+   "shuckle": {
+    "label": "Shuckle",
+    "kind": "gift",
+    "species": 213,
+    "intro": "",
+    "variety": 12
+   },
+   "eevee": {
+    "label": "Eevee (Bill's family)",
+    "kind": "gift",
+    "species": 133,
+    "intro": "",
+    "variety": 12
+   },
+   "dratini": {
+    "label": "Dratini (Dragon's Den)",
+    "kind": "gift",
+    "species": 147,
+    "intro": "",
+    "variety": 12
+   },
+   "prize_abra": {
+    "label": "Abra (Game Corner)",
+    "kind": "gift",
+    "species": 63,
+    "intro": "prize:0",
+    "variety": 12
+   },
+   "prize_cubone": {
+    "label": "Cubone (Game Corner)",
+    "kind": "gift",
+    "species": 104,
+    "intro": "prize:1",
+    "variety": 12
+   },
+   "prize_wobbuffet": {
+    "label": "Wobbuffet (Game Corner)",
+    "kind": "gift",
+    "species": 202,
+    "intro": "prize:2",
+    "variety": 12
+   },
+   "prize_pikachu": {
+    "label": "Pikachu (Game Corner)",
+    "kind": "gift",
+    "species": 25,
+    "intro": "prize:0",
+    "variety": 12
+   },
+   "prize_porygon": {
+    "label": "Porygon (Game Corner)",
+    "kind": "gift",
+    "species": 137,
+    "intro": "prize:1",
+    "variety": 12
+   },
+   "prize_larvitar": {
+    "label": "Larvitar (Game Corner)",
+    "kind": "gift",
+    "species": 246,
+    "intro": "prize:2",
+    "variety": 12
+   }
+  }
+ }
+}

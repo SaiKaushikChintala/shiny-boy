@@ -1,0 +1,528 @@
+{
+ "red": {
+  "wCurMap": [
+   0,
+   54110
+  ],
+  "wYCoord": [
+   0,
+   54113
+  ],
+  "wXCoord": [
+   0,
+   54114
+  ],
+  "wEnemyMonSpecies": [
+   0,
+   53221
+  ],
+  "wEnemyMonDVs": [
+   0,
+   53233
+  ],
+  "wIsInBattle": [
+   0,
+   53335
+  ],
+  "wWarpEntries": [
+   0,
+   54191
+  ],
+  "wNumberOfWarps": [
+   0,
+   54190
+  ],
+  "wEventFlags": [
+   0,
+   55111
+  ],
+  "wToggleableObjectFlags": [
+   0,
+   54694
+  ],
+  "wPartyCount": [
+   0,
+   53603
+  ],
+  "wCurOpponent": [
+   0,
+   53337
+  ],
+  "wNumBagItems": [
+   0,
+   54045
+  ],
+  "wBagItems": [
+   0,
+   54046
+  ],
+  "wDestinationWarpID": [
+   0,
+   54319
+  ],
+  "hRandomAdd": [
+   0,
+   65491
+  ],
+  "wPartySpecies": [
+   0,
+   53604
+  ],
+  "wPartyMons": [
+   0,
+   53611
+  ],
+  "wPartyMonOT": [
+   0,
+   53875
+  ],
+  "wPartyMonNicks": [
+   0,
+   53941
+  ],
+  "wPlayerName": [
+   0,
+   53592
+  ],
+  "wPlayerID": [
+   0,
+   54105
+  ],
+  "wPokedexOwned": [
+   0,
+   54007
+  ],
+  "wPokedexSeen": [
+   0,
+   54026
+  ],
+  "wCurrentMenuItem": [
+   0,
+   52262
+  ],
+  "wOaksLabCurScript": [
+   0,
+   54768
+  ],
+  "wStatusFlags4": [
+   0,
+   55086
+  ],
+  "wBeatGymFlags": [
+   0,
+   55082
+  ],
+  "wPlayerCoins": [
+   0,
+   54692
+  ],
+  "wPlayerMoney": [
+   0,
+   54087
+  ],
+  "wMaxMenuItem": [
+   0,
+   52264
+  ],
+  "wTopMenuItemY": [
+   0,
+   52260
+  ],
+  "wTopMenuItemX": [
+   0,
+   52261
+  ],
+  "wListScrollOffset": [
+   0,
+   52278
+  ],
+  "wBagSavedMenuItem": [
+   0,
+   52268
+  ],
+  "wBattleAndStartSavedMenuItem": [
+   0,
+   52269
+  ],
+  "wCurPartySpecies": [
+   0,
+   53137
+  ],
+  "wAddedToParty": [
+   0,
+   52435
+  ],
+  "wGrassTile": [
+   0,
+   54581
+  ],
+  "wTileMap": [
+   0,
+   50080
+  ],
+  "wEnemyMonLevel": [
+   0,
+   53235
+  ],
+  "wRepelRemainingSteps": [
+   0,
+   53467
+  ],
+  "wNumberOfNoRandomBattleStepsLeft": [
+   0,
+   53564
+  ]
+ },
+ "blue": {
+  "wCurMap": [
+   0,
+   54110
+  ],
+  "wYCoord": [
+   0,
+   54113
+  ],
+  "wXCoord": [
+   0,
+   54114
+  ],
+  "wEnemyMonSpecies": [
+   0,
+   53221
+  ],
+  "wEnemyMonDVs": [
+   0,
+   53233
+  ],
+  "wIsInBattle": [
+   0,
+   53335
+  ],
+  "wWarpEntries": [
+   0,
+   54191
+  ],
+  "wNumberOfWarps": [
+   0,
+   54190
+  ],
+  "wEventFlags": [
+   0,
+   55111
+  ],
+  "wToggleableObjectFlags": [
+   0,
+   54694
+  ],
+  "wPartyCount": [
+   0,
+   53603
+  ],
+  "wCurOpponent": [
+   0,
+   53337
+  ],
+  "wNumBagItems": [
+   0,
+   54045
+  ],
+  "wBagItems": [
+   0,
+   54046
+  ],
+  "wDestinationWarpID": [
+   0,
+   54319
+  ],
+  "hRandomAdd": [
+   0,
+   65491
+  ],
+  "wPartySpecies": [
+   0,
+   53604
+  ],
+  "wPartyMons": [
+   0,
+   53611
+  ],
+  "wPartyMonOT": [
+   0,
+   53875
+  ],
+  "wPartyMonNicks": [
+   0,
+   53941
+  ],
+  "wPlayerName": [
+   0,
+   53592
+  ],
+  "wPlayerID": [
+   0,
+   54105
+  ],
+  "wPokedexOwned": [
+   0,
+   54007
+  ],
+  "wPokedexSeen": [
+   0,
+   54026
+  ],
+  "wCurrentMenuItem": [
+   0,
+   52262
+  ],
+  "wOaksLabCurScript": [
+   0,
+   54768
+  ],
+  "wStatusFlags4": [
+   0,
+   55086
+  ],
+  "wBeatGymFlags": [
+   0,
+   55082
+  ],
+  "wPlayerCoins": [
+   0,
+   54692
+  ],
+  "wPlayerMoney": [
+   0,
+   54087
+  ],
+  "wMaxMenuItem": [
+   0,
+   52264
+  ],
+  "wTopMenuItemY": [
+   0,
+   52260
+  ],
+  "wTopMenuItemX": [
+   0,
+   52261
+  ],
+  "wListScrollOffset": [
+   0,
+   52278
+  ],
+  "wBagSavedMenuItem": [
+   0,
+   52268
+  ],
+  "wBattleAndStartSavedMenuItem": [
+   0,
+   52269
+  ],
+  "wCurPartySpecies": [
+   0,
+   53137
+  ],
+  "wAddedToParty": [
+   0,
+   52435
+  ],
+  "wGrassTile": [
+   0,
+   54581
+  ],
+  "wTileMap": [
+   0,
+   50080
+  ],
+  "wEnemyMonLevel": [
+   0,
+   53235
+  ],
+  "wRepelRemainingSteps": [
+   0,
+   53467
+  ],
+  "wNumberOfNoRandomBattleStepsLeft": [
+   0,
+   53564
+  ]
+ },
+ "yellow": {
+  "wCurMap": [
+   0,
+   54109
+  ],
+  "wYCoord": [
+   0,
+   54112
+  ],
+  "wXCoord": [
+   0,
+   54113
+  ],
+  "wEnemyMonSpecies": [
+   0,
+   53220
+  ],
+  "wEnemyMonDVs": [
+   0,
+   53232
+  ],
+  "wIsInBattle": [
+   0,
+   53334
+  ],
+  "wWarpEntries": [
+   0,
+   54190
+  ],
+  "wNumberOfWarps": [
+   0,
+   54189
+  ],
+  "wEventFlags": [
+   0,
+   55110
+  ],
+  "wToggleableObjectFlags": [
+   0,
+   54693
+  ],
+  "wPartyCount": [
+   0,
+   53602
+  ],
+  "wCurOpponent": [
+   0,
+   53336
+  ],
+  "wNumBagItems": [
+   0,
+   54044
+  ],
+  "wBagItems": [
+   0,
+   54045
+  ],
+  "wDestinationWarpID": [
+   0,
+   54318
+  ],
+  "hRandomAdd": [
+   0,
+   65491
+  ],
+  "wPartySpecies": [
+   0,
+   53603
+  ],
+  "wPartyMons": [
+   0,
+   53610
+  ],
+  "wPartyMonOT": [
+   0,
+   53874
+  ],
+  "wPartyMonNicks": [
+   0,
+   53940
+  ],
+  "wPlayerName": [
+   0,
+   53591
+  ],
+  "wPlayerID": [
+   0,
+   54104
+  ],
+  "wPokedexOwned": [
+   0,
+   54006
+  ],
+  "wPokedexSeen": [
+   0,
+   54025
+  ],
+  "wCurrentMenuItem": [
+   0,
+   52262
+  ],
+  "wOaksLabCurScript": [
+   0,
+   54767
+  ],
+  "wStatusFlags4": [
+   0,
+   55085
+  ],
+  "wBeatGymFlags": [
+   0,
+   55081
+  ],
+  "wPlayerCoins": [
+   0,
+   54691
+  ],
+  "wPlayerMoney": [
+   0,
+   54086
+  ],
+  "wMaxMenuItem": [
+   0,
+   52264
+  ],
+  "wTopMenuItemY": [
+   0,
+   52260
+  ],
+  "wTopMenuItemX": [
+   0,
+   52261
+  ],
+  "wListScrollOffset": [
+   0,
+   52278
+  ],
+  "wBagSavedMenuItem": [
+   0,
+   52268
+  ],
+  "wBattleAndStartSavedMenuItem": [
+   0,
+   52269
+  ],
+  "wPikachuHappiness": [
+   0,
+   54383
+  ],
+  "wCurPartySpecies": [
+   0,
+   53136
+  ],
+  "wAddedToParty": [
+   0,
+   52435
+  ],
+  "wGrassTile": [
+   0,
+   54580
+  ],
+  "wTileMap": [
+   0,
+   50080
+  ],
+  "wEnemyMonLevel": [
+   0,
+   53234
+  ],
+  "wRepelRemainingSteps": [
+   0,
+   53466
+  ],
+  "wNumberOfNoRandomBattleStepsLeft": [
+   0,
+   53563
+  ]
+ }
+}

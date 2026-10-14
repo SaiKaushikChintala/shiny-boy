@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+build/
+output/
+roms/
+saves/
+states/
+screenshots/
+settings.json
+*.exe
+*.dll

@@ -1,0 +1,688 @@
+{
+ "gold": {
+  "wTilemap": [
+   0,
+   50080
+  ],
+  "wCurPartyLevel": [
+   1,
+   53312
+  ],
+  "wNextWarp": [
+   1,
+   53315
+  ],
+  "wEnemyMonSpecies": [
+   1,
+   53487
+  ],
+  "wEnemyMonDVs": [
+   1,
+   53493
+  ],
+  "wBattleMode": [
+   1,
+   53526
+  ],
+  "wTempWildMonSpecies": [
+   1,
+   53527
+  ],
+  "wBattleType": [
+   1,
+   53529
+  ],
+  "wWildEncounterCooldown": [
+   1,
+   53625
+  ],
+  "wNumKeyItems": [
+   1,
+   54753
+  ],
+  "wKeyItems": [
+   1,
+   54754
+  ],
+  "wNumBalls": [
+   1,
+   54780
+  ],
+  "wBalls": [
+   1,
+   54781
+  ],
+  "wEventFlags": [
+   1,
+   55223
+  ],
+  "wRepelEffect": [
+   1,
+   55787
+  ],
+  "wMapGroup": [
+   1,
+   55808
+  ],
+  "wMapNumber": [
+   1,
+   55809
+  ],
+  "wYCoord": [
+   1,
+   55810
+  ],
+  "wXCoord": [
+   1,
+   55811
+  ],
+  "wPartyCount": [
+   1,
+   55842
+  ],
+  "wRoamMon1Species": [
+   1,
+   56602
+  ],
+  "wRoamMon1Level": [
+   1,
+   56603
+  ],
+  "wRoamMon1MapGroup": [
+   1,
+   56604
+  ],
+  "wRoamMon1MapNumber": [
+   1,
+   56605
+  ],
+  "wRoamMon1HP": [
+   1,
+   56606
+  ],
+  "wRoamMon1DVs": [
+   1,
+   56607
+  ],
+  "wRoamMon2Species": [
+   1,
+   56609
+  ],
+  "wRoamMon2Level": [
+   1,
+   56610
+  ],
+  "wRoamMon2MapGroup": [
+   1,
+   56611
+  ],
+  "wRoamMon2MapNumber": [
+   1,
+   56612
+  ],
+  "wRoamMon2HP": [
+   1,
+   56613
+  ],
+  "wRoamMon2DVs": [
+   1,
+   56614
+  ],
+  "wRoamMon3Species": [
+   1,
+   56616
+  ],
+  "wRoamMon3Level": [
+   1,
+   56617
+  ],
+  "wRoamMon3MapGroup": [
+   1,
+   56618
+  ],
+  "wRoamMon3MapNumber": [
+   1,
+   56619
+  ],
+  "wRoamMon3HP": [
+   1,
+   56620
+  ],
+  "wRoamMon3DVs": [
+   1,
+   56621
+  ],
+  "TryWildEncounter.EncounterRate": [
+   10,
+   26207
+  ],
+  "wTileDown": [
+   0,
+   52899
+  ],
+  "wTileUp": [
+   0,
+   52900
+  ],
+  "wTileLeft": [
+   0,
+   52901
+  ],
+  "wTileRight": [
+   0,
+   52902
+  ],
+  "wMapMusic": [
+   0,
+   49600
+  ],
+  "wCoins": [
+   1,
+   54650
+  ],
+  "wMoney": [
+   1,
+   54643
+  ],
+  "wPartyMon1DVs": [
+   1,
+   55871
+  ],
+  "wPartyMon1Species": [
+   1,
+   55850
+  ],
+  "wPartySpecies": [
+   1,
+   55843
+  ],
+  "wMenuCursorY": [
+   0,
+   52960
+  ],
+  "wMenuDataItems": [
+   0,
+   52937
+  ],
+  "wMenuCursorPosition": [
+   0,
+   52927
+  ],
+  "hInMenu": [
+   0,
+   65452
+  ],
+  "wPlayerID": [
+   1,
+   53665
+  ],
+  "wPlayerName": [
+   1,
+   53667
+  ],
+  "hRandomAdd": [
+   0,
+   65507
+  ]
+ },
+ "silver": {
+  "wTilemap": [
+   0,
+   50080
+  ],
+  "wCurPartyLevel": [
+   1,
+   53312
+  ],
+  "wNextWarp": [
+   1,
+   53315
+  ],
+  "wEnemyMonSpecies": [
+   1,
+   53487
+  ],
+  "wEnemyMonDVs": [
+   1,
+   53493
+  ],
+  "wBattleMode": [
+   1,
+   53526
+  ],
+  "wTempWildMonSpecies": [
+   1,
+   53527
+  ],
+  "wBattleType": [
+   1,
+   53529
+  ],
+  "wWildEncounterCooldown": [
+   1,
+   53625
+  ],
+  "wNumKeyItems": [
+   1,
+   54753
+  ],
+  "wKeyItems": [
+   1,
+   54754
+  ],
+  "wNumBalls": [
+   1,
+   54780
+  ],
+  "wBalls": [
+   1,
+   54781
+  ],
+  "wEventFlags": [
+   1,
+   55223
+  ],
+  "wRepelEffect": [
+   1,
+   55787
+  ],
+  "wMapGroup": [
+   1,
+   55808
+  ],
+  "wMapNumber": [
+   1,
+   55809
+  ],
+  "wYCoord": [
+   1,
+   55810
+  ],
+  "wXCoord": [
+   1,
+   55811
+  ],
+  "wPartyCount": [
+   1,
+   55842
+  ],
+  "wRoamMon1Species": [
+   1,
+   56602
+  ],
+  "wRoamMon1Level": [
+   1,
+   56603
+  ],
+  "wRoamMon1MapGroup": [
+   1,
+   56604
+  ],
+  "wRoamMon1MapNumber": [
+   1,
+   56605
+  ],
+  "wRoamMon1HP": [
+   1,
+   56606
+  ],
+  "wRoamMon1DVs": [
+   1,
+   56607
+  ],
+  "wRoamMon2Species": [
+   1,
+   56609
+  ],
+  "wRoamMon2Level": [
+   1,
+   56610
+  ],
+  "wRoamMon2MapGroup": [
+   1,
+   56611
+  ],
+  "wRoamMon2MapNumber": [
+   1,
+   56612
+  ],
+  "wRoamMon2HP": [
+   1,
+   56613
+  ],
+  "wRoamMon2DVs": [
+   1,
+   56614
+  ],
+  "wRoamMon3Species": [
+   1,
+   56616
+  ],
+  "wRoamMon3Level": [
+   1,
+   56617
+  ],
+  "wRoamMon3MapGroup": [
+   1,
+   56618
+  ],
+  "wRoamMon3MapNumber": [
+   1,
+   56619
+  ],
+  "wRoamMon3HP": [
+   1,
+   56620
+  ],
+  "wRoamMon3DVs": [
+   1,
+   56621
+  ],
+  "TryWildEncounter.EncounterRate": [
+   10,
+   26207
+  ],
+  "wTileDown": [
+   0,
+   52899
+  ],
+  "wTileUp": [
+   0,
+   52900
+  ],
+  "wTileLeft": [
+   0,
+   52901
+  ],
+  "wTileRight": [
+   0,
+   52902
+  ],
+  "wMapMusic": [
+   0,
+   49600
+  ],
+  "wCoins": [
+   1,
+   54650
+  ],
+  "wMoney": [
+   1,
+   54643
+  ],
+  "wPartyMon1DVs": [
+   1,
+   55871
+  ],
+  "wPartyMon1Species": [
+   1,
+   55850
+  ],
+  "wPartySpecies": [
+   1,
+   55843
+  ],
+  "wMenuCursorY": [
+   0,
+   52960
+  ],
+  "wMenuDataItems": [
+   0,
+   52937
+  ],
+  "wMenuCursorPosition": [
+   0,
+   52927
+  ],
+  "hInMenu": [
+   0,
+   65452
+  ],
+  "wPlayerID": [
+   1,
+   53665
+  ],
+  "wPlayerName": [
+   1,
+   53667
+  ],
+  "hRandomAdd": [
+   0,
+   65507
+  ]
+ },
+ "crystal": {
+  "wTilemap": [
+   0,
+   50336
+  ],
+  "wCurPartyLevel": [
+   1,
+   53571
+  ],
+  "wNextWarp": [
+   1,
+   53574
+  ],
+  "wEnemyMonSpecies": [
+   1,
+   53766
+  ],
+  "wEnemyMonDVs": [
+   1,
+   53772
+  ],
+  "wBattleMode": [
+   1,
+   53805
+  ],
+  "wTempWildMonSpecies": [
+   1,
+   53806
+  ],
+  "wBattleType": [
+   1,
+   53808
+  ],
+  "wWildEncounterCooldown": [
+   1,
+   54354
+  ],
+  "wNumKeyItems": [
+   1,
+   55484
+  ],
+  "wKeyItems": [
+   1,
+   55485
+  ],
+  "wNumBalls": [
+   1,
+   55511
+  ],
+  "wBalls": [
+   1,
+   55512
+  ],
+  "wTinTower1FSceneID": [
+   1,
+   55718
+  ],
+  "wEventFlags": [
+   1,
+   55922
+  ],
+  "wRepelEffect": [
+   1,
+   56481
+  ],
+  "wMapGroup": [
+   1,
+   56501
+  ],
+  "wMapNumber": [
+   1,
+   56502
+  ],
+  "wYCoord": [
+   1,
+   56503
+  ],
+  "wXCoord": [
+   1,
+   56504
+  ],
+  "wPartyCount": [
+   1,
+   56535
+  ],
+  "wRoamMon1Species": [
+   1,
+   57295
+  ],
+  "wRoamMon1Level": [
+   1,
+   57296
+  ],
+  "wRoamMon1MapGroup": [
+   1,
+   57297
+  ],
+  "wRoamMon1MapNumber": [
+   1,
+   57298
+  ],
+  "wRoamMon1HP": [
+   1,
+   57299
+  ],
+  "wRoamMon1DVs": [
+   1,
+   57300
+  ],
+  "wRoamMon2Species": [
+   1,
+   57302
+  ],
+  "wRoamMon2Level": [
+   1,
+   57303
+  ],
+  "wRoamMon2MapGroup": [
+   1,
+   57304
+  ],
+  "wRoamMon2MapNumber": [
+   1,
+   57305
+  ],
+  "wRoamMon2HP": [
+   1,
+   57306
+  ],
+  "wRoamMon2DVs": [
+   1,
+   57307
+  ],
+  "wRoamMon3Species": [
+   1,
+   57309
+  ],
+  "wRoamMon3Level": [
+   1,
+   57310
+  ],
+  "wRoamMon3MapGroup": [
+   1,
+   57311
+  ],
+  "wRoamMon3MapNumber": [
+   1,
+   57312
+  ],
+  "wRoamMon3HP": [
+   1,
+   57313
+  ],
+  "wRoamMon3DVs": [
+   1,
+   57314
+  ],
+  "TryWildEncounter.EncounterRate": [
+   10,
+   24835
+  ],
+  "wTileDown": [
+   0,
+   49914
+  ],
+  "wTileUp": [
+   0,
+   49915
+  ],
+  "wTileLeft": [
+   0,
+   49916
+  ],
+  "wTileRight": [
+   0,
+   49917
+  ],
+  "wMapMusic": [
+   0,
+   49856
+  ],
+  "wCoins": [
+   1,
+   55381
+  ],
+  "wMoney": [
+   1,
+   55374
+  ],
+  "wPartyMon1DVs": [
+   1,
+   56564
+  ],
+  "wPartyMon1Species": [
+   1,
+   56543
+  ],
+  "wPartySpecies": [
+   1,
+   56536
+  ],
+  "wMenuCursorY": [
+   0,
+   53161
+  ],
+  "wMenuDataItems": [
+   0,
+   53138
+  ],
+  "wMenuCursorPosition": [
+   0,
+   53128
+  ],
+  "hInMenu": [
+   0,
+   65450
+  ],
+  "wDragonShrineSceneID": [
+   1,
+   55737
+  ],
+  "wPlayerID": [
+   1,
+   54395
+  ],
+  "wPlayerName": [
+   1,
+   54397
+  ],
+  "hRandomAdd": [
+   0,
+   65505
+  ]
+ }
+}

@@ -1,0 +1,401 @@
+{
+ "red": {
+  "dex_event": 37,
+  "targets": {
+   "articuno": {
+    "label": "Articuno",
+    "kind": "static",
+    "species": 74,
+    "intro": ""
+   },
+   "zapdos": {
+    "label": "Zapdos",
+    "kind": "static",
+    "species": 75,
+    "intro": ""
+   },
+   "moltres": {
+    "label": "Moltres",
+    "kind": "static",
+    "species": 73,
+    "intro": ""
+   },
+   "mewtwo": {
+    "label": "Mewtwo",
+    "kind": "static",
+    "species": 131,
+    "intro": ""
+   },
+   "snorlax12": {
+    "label": "Snorlax (Route 12)",
+    "kind": "static",
+    "species": 132,
+    "intro": "flute",
+    "item": 73
+   },
+   "snorlax16": {
+    "label": "Snorlax (Route 16)",
+    "kind": "static",
+    "species": 132,
+    "intro": "flute",
+    "item": 73
+   },
+   "voltorb": {
+    "label": "Voltorb (Power Plant)",
+    "kind": "static",
+    "species": 6,
+    "intro": ""
+   },
+   "electrode1": {
+    "label": "Electrode 1 (Power Plant)",
+    "kind": "static",
+    "species": 141,
+    "intro": ""
+   },
+   "electrode2": {
+    "label": "Electrode 2 (Power Plant)",
+    "kind": "static",
+    "species": 141,
+    "intro": ""
+   },
+   "eevee": {
+    "label": "Eevee",
+    "kind": "gift",
+    "species": 102,
+    "intro": ""
+   },
+   "lapras": {
+    "label": "Lapras",
+    "kind": "gift",
+    "species": 19,
+    "intro": ""
+   },
+   "hitmonlee": {
+    "label": "Hitmonlee",
+    "kind": "gift",
+    "species": 43,
+    "intro": ""
+   },
+   "hitmonchan": {
+    "label": "Hitmonchan",
+    "kind": "gift",
+    "species": 44,
+    "intro": ""
+   },
+   "magikarp": {
+    "label": "Magikarp",
+    "kind": "gift",
+    "species": 133,
+    "intro": ""
+   },
+   "prize_abra": {
+    "label": "Abra (Game Corner)",
+    "kind": "gift",
+    "species": 148,
+    "intro": "prize:0"
+   },
+   "prize_clefairy": {
+    "label": "Clefairy (Game Corner)",
+    "kind": "gift",
+    "species": 4,
+    "intro": "prize:1"
+   },
+   "prize_nidorina": {
+    "label": "Nidorina (Game Corner)",
+    "kind": "gift",
+    "species": 168,
+    "intro": "prize:2"
+   },
+   "prize_dratini": {
+    "label": "Dratini (Game Corner)",
+    "kind": "gift",
+    "species": 88,
+    "intro": "prize:0"
+   },
+   "prize_scyther": {
+    "label": "Scyther (Game Corner)",
+    "kind": "gift",
+    "species": 26,
+    "intro": "prize:1"
+   },
+   "prize_porygon": {
+    "label": "Porygon (Game Corner)",
+    "kind": "gift",
+    "species": 170,
+    "intro": "prize:2"
+   }
+  }
+ },
+ "blue": {
+  "dex_event": 37,
+  "targets": {
+   "articuno": {
+    "label": "Articuno",
+    "kind": "static",
+    "species": 74,
+    "intro": ""
+   },
+   "zapdos": {
+    "label": "Zapdos",
+    "kind": "static",
+    "species": 75,
+    "intro": ""
+   },
+   "moltres": {
+    "label": "Moltres",
+    "kind": "static",
+    "species": 73,
+    "intro": ""
+   },
+   "mewtwo": {
+    "label": "Mewtwo",
+    "kind": "static",
+    "species": 131,
+    "intro": ""
+   },
+   "snorlax12": {
+    "label": "Snorlax (Route 12)",
+    "kind": "static",
+    "species": 132,
+    "intro": "flute",
+    "item": 73
+   },
+   "snorlax16": {
+    "label": "Snorlax (Route 16)",
+    "kind": "static",
+    "species": 132,
+    "intro": "flute",
+    "item": 73
+   },
+   "voltorb": {
+    "label": "Voltorb (Power Plant)",
+    "kind": "static",
+    "species": 6,
+    "intro": ""
+   },
+   "electrode1": {
+    "label": "Electrode 1 (Power Plant)",
+    "kind": "static",
+    "species": 141,
+    "intro": ""
+   },
+   "electrode2": {
+    "label": "Electrode 2 (Power Plant)",
+    "kind": "static",
+    "species": 141,
+    "intro": ""
+   },
+   "eevee": {
+    "label": "Eevee",
+    "kind": "gift",
+    "species": 102,
+    "intro": ""
+   },
+   "lapras": {
+    "label": "Lapras",
+    "kind": "gift",
+    "species": 19,
+    "intro": ""
+   },
+   "hitmonlee": {
+    "label": "Hitmonlee",
+    "kind": "gift",
+    "species": 43,
+    "intro": ""
+   },
+   "hitmonchan": {
+    "label": "Hitmonchan",
+    "kind": "gift",
+    "species": 44,
+    "intro": ""
+   },
+   "magikarp": {
+    "label": "Magikarp",
+    "kind": "gift",
+    "species": 133,
+    "intro": ""
+   },
+   "prize_abra": {
+    "label": "Abra (Game Corner)",
+    "kind": "gift",
+    "species": 148,
+    "intro": "prize:0"
+   },
+   "prize_clefairy": {
+    "label": "Clefairy (Game Corner)",
+    "kind": "gift",
+    "species": 4,
+    "intro": "prize:1"
+   },
+   "prize_nidorino": {
+    "label": "Nidorino (Game Corner)",
+    "kind": "gift",
+    "species": 167,
+    "intro": "prize:2"
+   },
+   "prize_pinsir": {
+    "label": "Pinsir (Game Corner)",
+    "kind": "gift",
+    "species": 29,
+    "intro": "prize:0"
+   },
+   "prize_dratini": {
+    "label": "Dratini (Game Corner)",
+    "kind": "gift",
+    "species": 88,
+    "intro": "prize:1"
+   },
+   "prize_porygon": {
+    "label": "Porygon (Game Corner)",
+    "kind": "gift",
+    "species": 170,
+    "intro": "prize:2"
+   }
+  }
+ },
+ "yellow": {
+  "dex_event": 37,
+  "targets": {
+   "articuno": {
+    "label": "Articuno",
+    "kind": "static",
+    "species": 74,
+    "intro": ""
+   },
+   "zapdos": {
+    "label": "Zapdos",
+    "kind": "static",
+    "species": 75,
+    "intro": ""
+   },
+   "moltres": {
+    "label": "Moltres",
+    "kind": "static",
+    "species": 73,
+    "intro": ""
+   },
+   "mewtwo": {
+    "label": "Mewtwo",
+    "kind": "static",
+    "species": 131,
+    "intro": ""
+   },
+   "snorlax12": {
+    "label": "Snorlax (Route 12)",
+    "kind": "static",
+    "species": 132,
+    "intro": "flute",
+    "item": 73
+   },
+   "snorlax16": {
+    "label": "Snorlax (Route 16)",
+    "kind": "static",
+    "species": 132,
+    "intro": "flute",
+    "item": 73
+   },
+   "voltorb": {
+    "label": "Voltorb (Power Plant)",
+    "kind": "static",
+    "species": 6,
+    "intro": ""
+   },
+   "electrode1": {
+    "label": "Electrode 1 (Power Plant)",
+    "kind": "static",
+    "species": 141,
+    "intro": ""
+   },
+   "electrode2": {
+    "label": "Electrode 2 (Power Plant)",
+    "kind": "static",
+    "species": 141,
+    "intro": ""
+   },
+   "eevee": {
+    "label": "Eevee",
+    "kind": "gift",
+    "species": 102,
+    "intro": ""
+   },
+   "lapras": {
+    "label": "Lapras",
+    "kind": "gift",
+    "species": 19,
+    "intro": ""
+   },
+   "hitmonlee": {
+    "label": "Hitmonlee",
+    "kind": "gift",
+    "species": 43,
+    "intro": ""
+   },
+   "hitmonchan": {
+    "label": "Hitmonchan",
+    "kind": "gift",
+    "species": 44,
+    "intro": ""
+   },
+   "magikarp": {
+    "label": "Magikarp",
+    "kind": "gift",
+    "species": 133,
+    "intro": ""
+   },
+   "bulbasaur_gift": {
+    "label": "Bulbasaur (Cerulean)",
+    "kind": "gift",
+    "species": 153,
+    "intro": ""
+   },
+   "charmander_gift": {
+    "label": "Charmander (Route 24)",
+    "kind": "gift",
+    "species": 176,
+    "intro": ""
+   },
+   "squirtle_gift": {
+    "label": "Squirtle (Vermilion)",
+    "kind": "gift",
+    "species": 177,
+    "intro": ""
+   },
+   "prize_abra": {
+    "label": "Abra (Game Corner)",
+    "kind": "gift",
+    "species": 148,
+    "intro": "prize:0"
+   },
+   "prize_vulpix": {
+    "label": "Vulpix (Game Corner)",
+    "kind": "gift",
+    "species": 82,
+    "intro": "prize:1"
+   },
+   "prize_wigglytuff": {
+    "label": "Wigglytuff (Game Corner)",
+    "kind": "gift",
+    "species": 101,
+    "intro": "prize:2"
+   },
+   "prize_scyther": {
+    "label": "Scyther (Game Corner)",
+    "kind": "gift",
+    "species": 26,
+    "intro": "prize:0"
+   },
+   "prize_pinsir": {
+    "label": "Pinsir (Game Corner)",
+    "kind": "gift",
+    "species": 29,
+    "intro": "prize:1"
+   },
+   "prize_porygon": {
+    "label": "Porygon (Game Corner)",
+    "kind": "gift",
+    "species": 170,
+    "intro": "prize:2"
+   }
+  }
+ }
+}
