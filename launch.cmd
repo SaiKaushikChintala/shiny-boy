@@ -9,18 +9,21 @@ py -3.13 -c "import tkinter" >nul 2>&1 && set PYTHON=py -3.13
 if not defined PYTHON (
     python -c "import sys, tkinter; sys.exit(sys.version_info[:2] != (3, 13))" >nul 2>&1 && set PYTHON=python
 )
-if not defined PYTHON (
-    echo.
-    echo Python 3.13 with Tk was not found. Install Python 3.13 from https://www.python.org/downloads/ and start again.
-    pause
-    exit /b 1
-)
+if not defined PYTHON goto anypython
 %PYTHON% -m venv .venv || goto failed
 ".venv\Scripts\python.exe" -m pip install --quiet -r requirements.txt || goto failed
 
 :run
 start "" "%~dp0.venv\Scripts\pythonw.exe" -m shiny %*
 exit /b 0
+
+:anypython
+where py >nul 2>&1 && ( start "" pyw -3 -m shiny %* & exit /b 0 )
+where pythonw >nul 2>&1 && ( start "" pythonw -m shiny %* & exit /b 0 )
+echo.
+echo Python was not found. Install Python 3.13 from https://www.python.org/downloads/ and start again.
+pause
+exit /b 1
 
 :failed
 echo.

@@ -38,10 +38,10 @@ English versions, original release (revision 0) only.
 
 **Gen 1 (RBY)**
 
-| Bot           | RB  |      Y       |
-| ------------- | :-: | :----------: |
-| Starter       | ✅  | ✅ (Pikachu) |
-| Gift / Static | ✅  |      ✅      |
+| Bot           | RB  |  Y  |
+| ------------- | :-: | :-: |
+| Starter       | ✅  | ✅  |
+| Gift / Static | ✅  | ✅  |
 
 **Gen 2 (GSC)**
 

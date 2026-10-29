@@ -77,7 +77,6 @@ class Method1Hunt:
         if delay % 32768 == 0:
             self.log(f"Wait table: {delay:,} frames, {advances:,} advances ({speed:,.0f} frames/s)")
 
-
     def attempt(self, delay: int) -> Attempt | None:
         self.table.state_after(delay)
         self.attempts_made += 1

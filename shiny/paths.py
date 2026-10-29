@@ -1,8 +1,11 @@
+import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-DATA_DIRECTORY = ROOT / "data"
-ASSETS_DIRECTORY = ROOT / "assets"
+FROZEN = getattr(sys, "frozen", False)
+ROOT = Path(sys.executable).resolve().parent if FROZEN else Path(__file__).resolve().parent.parent
+BUNDLE = Path(getattr(sys, "_MEIPASS", ROOT))
+DATA_DIRECTORY = BUNDLE / "data"
+ASSETS_DIRECTORY = BUNDLE / "assets"
 ROMS_DIRECTORY = ROOT / "roms"
 SAVES_DIRECTORY = ROOT / "saves"
 STATES_DIRECTORY = ROOT / "states"

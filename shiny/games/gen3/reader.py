@@ -47,7 +47,6 @@ class Gen3Reader:
         self.symbols = load_symbols(game.symbol_file)
         self._names_by_address: dict[int, str] | None = None
 
-
     def symbol(self, name: str) -> tuple[int, int]:
         try:
             return self.symbols[name.upper()]
@@ -62,7 +61,6 @@ class Gen3Reader:
         if self._names_by_address is None:
             self._names_by_address = {symbol[0]: name for name, symbol in self.symbols.items()}
         return self._names_by_address.get(address)
-
 
     @property
     def rng_address(self) -> int:
@@ -85,6 +83,17 @@ class Gen3Reader:
     def advances(self) -> int | None:
         seed = self.boot_seed()
         return None if seed is None else lcrng.distance(seed, self.rng_value())
+
+    def advances_since_seed(self) -> int | None:
+        rng = self.rng_value()
+        seeds = [self.boot_seed()]
+        if self.key == "emerald":
+            try:
+                seeds.append(self.trainer_ids()[0])
+            except Exception:
+                pass
+        counts = [lcrng.distance(seed, rng) for seed in seeds if seed is not None]
+        return min(counts) if counts else None
 
     def rng_text(self) -> str:
         return f"{self.rng_value():#010x}"
@@ -120,7 +129,6 @@ class Gen3Reader:
                 return [int.from_bytes(task[8 + 2 * i : 10 + 2 * i], "little") for i in range(count)]
         return None
 
-
     def party_size(self) -> int:
         return self.read_symbol("gPlayerPartyCount")[0]
 
@@ -135,7 +143,6 @@ class Gen3Reader:
 
     def enemy_pid(self) -> int:
         return int.from_bytes(self.read_symbol("gEnemyParty", 0, 4), "little")
-
 
     def save_block_address(self, number: int) -> int:
         if self.game.fixed_save_blocks:
@@ -197,7 +204,6 @@ class Gen3Reader:
     def is_surfing(self) -> bool:
         return bool(self.read_symbol("gPlayerAvatar", 0, 1)[0] & (1 << 3))
 
-
     def get_var(self, variable: int) -> int | None:
         data = self.read_save_block(1, self.game.vars_offset + (variable - layout.VAR_BASE) * 2, 2)
         return None if data is None else int.from_bytes(data, "little")
@@ -211,7 +217,6 @@ class Gen3Reader:
         if data is None:
             return []
         return [int.from_bytes(data[slot * 4 : slot * 4 + 2], "little") for slot in range(self.game.key_items_count)]
-
 
     def save_in_game(self, save_data: bytes = b"") -> None:
         from shiny.games.gen3 import savegame

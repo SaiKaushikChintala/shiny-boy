@@ -1,8 +1,11 @@
 import tkinter as tk
 from dataclasses import dataclass
+from tkinter import font as tkfont
 from typing import Callable
 
-from shiny.app.ui.theme import FONT, FONT_SMALL, P
+from shiny.app.ui.kit import Slider, rounded, round_window
+from shiny.app.ui.screen import app_in_foreground, place_in_monitor
+from shiny.app.ui.theme import FONT, FONT_BOLD, FONT_SMALL, P, dp
 
 ROW_PADDING = 6
 SUBMENU_DELAY_MS = 220
@@ -18,10 +21,13 @@ class _Entry:
     value: object = None
     submenu: "DarkMenu | None" = None
     state: str = "normal"
+    minimum: int = 0
+    maximum: int = 100
 
 
 class DarkMenu:
     open_chain: list["DarkMenu"] = []
+    _watching = False
     _global_click_bound = False
 
     def __init__(self, master: tk.Misc, postcommand: Callable[[], None] | None = None):
@@ -35,7 +41,6 @@ class DarkMenu:
         self._submenu_job = None
         self._on_close: Callable[[], None] | None = None
 
-
     def add_command(self, label: str, command=None, accelerator: str = "", state: str = "normal") -> None:
         self.entries.append(_Entry("command", label, command, accelerator, state=state))
 
@@ -47,6 +52,9 @@ class DarkMenu:
 
     def add_cascade(self, label: str, menu: "DarkMenu") -> None:
         self.entries.append(_Entry("cascade", label, submenu=menu))
+
+    def add_slider(self, label: str, variable: tk.IntVar, command=None, minimum: int = 0, maximum: int = 100) -> None:
+        self.entries.append(_Entry("slider", label, command, variable=variable, minimum=minimum, maximum=maximum))
 
     def add_separator(self) -> None:
         self.entries.append(_Entry("separator"))
@@ -60,7 +68,6 @@ class DarkMenu:
     def entryconfigure(self, index: int, **options) -> None:
         for name, value in options.items():
             setattr(self.entries[index], name.lstrip("-"), value)
-
 
     @property
     def is_open(self) -> bool:
@@ -89,9 +96,10 @@ class DarkMenu:
         window = tk.Toplevel(self.master)
         window.overrideredirect(True)
         window.attributes("-topmost", True)
-        window.configure(background=P.border)
+        window.configure(background=P.border_strong)
         body = tk.Frame(window, background=P.card)
         body.pack(padx=1, pady=1)
+        tk.Frame(body, background=P.card, height=dp(8)).pack(fill="x")
         self._window = window
         self._rows = []
         self._selected = -1
@@ -99,15 +107,16 @@ class DarkMenu:
 
         for index, entry in enumerate(self.entries):
             if entry.kind == "separator":
-                tk.Frame(body, background=P.border, height=1).pack(fill="x", padx=8, pady=4)
+                tk.Frame(body, background=P.border, height=1).pack(fill="x", padx=dp(14), pady=dp(5))
                 self._rows.append(None)
                 continue
             self._rows.append(self._make_row(body, index, entry))
 
+        round_window(window)
+        tk.Frame(body, background=P.card, height=dp(8)).pack(fill="x")
         window.update_idletasks()
         width, height = window.winfo_reqwidth(), window.winfo_reqheight()
-        x = max(0, min(x, window.winfo_screenwidth() - width))
-        y = max(0, min(y, window.winfo_screenheight() - height))
+        x, y = place_in_monitor(x, y, width, height)
         window.geometry(f"+{x}+{y}")
 
         window.bind("<Escape>", lambda _event: (DarkMenu.close_all(), "break")[1])
@@ -120,37 +129,58 @@ class DarkMenu:
             window.bind("<FocusOut>", lambda _event: window.after(80, DarkMenu._close_if_app_unfocused))
         DarkMenu.open_chain.append(self)
         DarkMenu._bind_global_click(self.master)
+        DarkMenu._watch_foreground(self.master)
 
-    def _make_row(self, body: tk.Frame, index: int, entry: _Entry) -> tk.Frame:
-        disabled = entry.state == "disabled"
-        row = tk.Frame(body, background=P.card)
-        row.pack(fill="x")
-        color = P.disabled if disabled else P.text
-
-        mark = ""
-        if entry.kind == "check" and entry.variable.get():
-            mark = "✓"
-        elif entry.kind == "radio" and entry.variable.get() == entry.value:
-            mark = "●"
-        widgets = [
-            tk.Label(row, text=mark, width=2, background=P.card, foreground=P.accent, font=FONT, anchor="center"),
-            tk.Label(row, text=entry.label, background=P.card, foreground=color, font=FONT, anchor="w"),
-            tk.Label(
-                row,
-                text="▸" if entry.kind == "cascade" else entry.accelerator,
-                background=P.card,
-                foreground=P.muted if not disabled else P.disabled,
-                font=FONT_SMALL,
-                anchor="e",
-            ),
-        ]
-        widgets[0].pack(side="left", padx=(6, 0), pady=ROW_PADDING)
-        widgets[1].pack(side="left", fill="x", expand=True, padx=(2, 18), pady=ROW_PADDING)
-        widgets[2].pack(side="right", padx=(0, 12), pady=ROW_PADDING)
-        for widget in (row, *widgets):
-            widget.bind("<Enter>", lambda _event, index=index: self._hover(index))
-            widget.bind("<ButtonRelease-1>", lambda _event, index=index: self._activate(index, by_mouse=True))
+    def _make_row(self, body: tk.Frame, index: int, entry: _Entry) -> tk.Widget:
+        if entry.kind == "slider":
+            return self._make_slider_row(body, entry)
+        face, small = tkfont.Font(font=FONT), tkfont.Font(font=FONT_SMALL)
+        accelerator = "" if entry.kind == "cascade" else entry.accelerator
+        width = dp(40) + face.measure(entry.label) + dp(36) + (small.measure(accelerator) if accelerator else dp(8)) + dp(18)
+        row = tk.Canvas(body, background=P.card, highlightthickness=0, borderwidth=0, width=max(width, dp(190)), height=face.metrics("linespace") + 2 * dp(ROW_PADDING) + dp(2))
+        row.pack(fill="x", padx=dp(6), pady=dp(1))
+        row.entry, row.active = entry, False
+        row.bind("<Configure>", lambda _event, row=row: self._paint(row))
+        row.bind("<Enter>", lambda _event, index=index: self._hover(index))
+        row.bind("<ButtonRelease-1>", lambda _event, index=index: self._activate(index, by_mouse=True))
         return row
+
+    def _make_slider_row(self, body: tk.Frame, entry: _Entry) -> tk.Frame:
+        row = tk.Frame(body, background=P.card)
+        row.pack(fill="x", padx=dp(4), pady=dp(2))
+        row.entry, row.active = entry, False
+        tk.Label(row, text=entry.label, background=P.card, foreground=P.text, font=FONT, anchor="w").pack(side="left", padx=(dp(14), dp(10)), pady=dp(6))
+        value = tk.Label(row, text="", background=P.card, foreground=P.muted, font=FONT_SMALL, width=5, anchor="e")
+        value.pack(side="right", padx=(dp(6), dp(14)))
+        slider = Slider(row, entry.variable, entry.minimum, entry.maximum, command=entry.command, bg=P.card, width=170)
+        slider.pack(side="right")
+        show = lambda *_: value.configure(text=f"{entry.variable.get()}%")
+        entry.variable.trace_add("write", show)
+        show()
+        return row
+
+    def _paint(self, row: tk.Canvas) -> None:
+        width, height = row.winfo_width(), row.winfo_height()
+        if width < 2:
+            return
+        entry, active = row.entry, row.active
+        disabled = entry.state == "disabled"
+        row.delete("all")
+        if active and not disabled:
+            row.create_image(0, 0, anchor="nw", image=rounded(width, height, dp(8), P.accent_dim, ""))
+        color = P.disabled if disabled else ("#ffffff" if active else P.text)
+        middle = height // 2
+        if entry.kind == "check" and entry.variable.get():
+            row.create_text(dp(20), middle, text="✓", font=FONT_BOLD, fill=P.accent_hover if active else P.accent)
+        elif entry.kind == "radio" and entry.variable.get() == entry.value:
+            row.create_image(dp(15), middle - dp(4), anchor="nw", image=rounded(dp(8), dp(8), dp(4), P.accent_hover if active else P.accent, ""))
+        row.create_text(dp(38), middle, text=entry.label, font=FONT, fill=color, anchor="w")
+        if entry.kind == "cascade":
+            half = dp(3)
+            row.create_line(width - dp(20), middle - half - dp(1), width - dp(20) + half + dp(1), middle, width - dp(20), middle + half + dp(1), fill=P.muted if not disabled else P.disabled,
+                            width=max(1, dp(2)), capstyle="round", joinstyle="round")
+        elif entry.accelerator:
+            row.create_text(width - dp(16), middle, text=entry.accelerator, font=FONT_SMALL, fill=(P.accent_text if active else P.subtle) if not disabled else P.disabled, anchor="e")
 
     def _hide(self) -> None:
         if self._submenu_job is not None:
@@ -166,28 +196,26 @@ class DarkMenu:
             callback, self._on_close = self._on_close, None
             callback()
 
-
     def _select(self, index: int) -> None:
         if self._selected == index:
             return
         for position, row in enumerate(self._rows):
-            if row is None:
+            if row is None or self.entries[position].kind == "slider":
                 continue
             active = position == index and self.entries[position].state != "disabled"
-            background = P.accent_dim if active else P.card
-            for widget in (row, *row.winfo_children()):
-                widget.configure(background=background)
-            if active and self.entries[position].kind != "check":
-                row.winfo_children()[1].configure(foreground="white")
-            elif not active:
-                disabled = self.entries[position].state == "disabled"
-                row.winfo_children()[1].configure(foreground=P.disabled if disabled else P.text)
+            if row.active != active:
+                row.active = active
+                self._paint(row)
         self._selected = index
 
     def _hover(self, index: int) -> None:
         if index == self._hovered:
             return
         self._hovered = index
+        if self.entries[index].kind == "slider":
+            self._select(-1)
+            self._close_submenus()
+            return
         self._select(index)
         self._close_submenus()
         if self._submenu_job is not None:
@@ -222,7 +250,7 @@ class DarkMenu:
         if not 0 <= index < len(self.entries):
             return
         entry = self.entries[index]
-        if entry.state == "disabled" or entry.kind == "separator":
+        if entry.state == "disabled" or entry.kind in ("separator", "slider"):
             return
         if entry.kind == "cascade":
             self._open_submenu(index, with_keyboard=not by_mouse)
@@ -240,9 +268,8 @@ class DarkMenu:
         if entry.command is not None:
             entry.command()
 
-
     def _move(self, step: int) -> str:
-        selectable = [i for i, entry in enumerate(self.entries) if entry.kind != "separator" and entry.state != "disabled"]
+        selectable = [i for i, entry in enumerate(self.entries) if entry.kind not in ("separator", "slider") and entry.state != "disabled"]
         if not selectable:
             return "break"
         if self._selected in selectable:
@@ -261,7 +288,6 @@ class DarkMenu:
         parent = DarkMenu.open_chain[position - 1]
         parent._window.focus_force()
         return "break"
-
 
     @classmethod
     def _bind_global_click(cls, master: tk.Misc) -> None:
@@ -284,6 +310,23 @@ class DarkMenu:
         if any(toplevel is menu._window for menu in cls.open_chain):
             return
         cls.close_all()
+
+    @classmethod
+    def _watch_foreground(cls, master: tk.Misc) -> None:
+        if cls._watching:
+            return
+        cls._watching = True
+
+        def check() -> None:
+            if not cls.open_chain:
+                cls._watching = False
+            elif not app_in_foreground():
+                cls._watching = False
+                cls.close_all()
+            else:
+                master.after(120, check)
+
+        master.after(120, check)
 
     @classmethod
     def _close_if_app_unfocused(cls) -> None:

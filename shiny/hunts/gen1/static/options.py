@@ -2,10 +2,10 @@ from shiny.games.gen1.layout import load_targets
 from shiny.hunts.options import BotOptions
 
 
-def options_for(game_key: str) -> BotOptions:
+def options_for(game_key: str, kind: str) -> BotOptions:
     return BotOptions(
-        name="Gift or static",
-        choices=tuple(spec["label"] for spec in load_targets(game_key).values()),
+        name=kind.title(),
+        choices=tuple(sorted((spec["label"] for spec in load_targets(game_key).values() if (spec["kind"] == "static") == (kind == "static")), key=str.lower)),
         choice_label="Pokémon",
         choices_as_buttons=False,
         has_nature=False,

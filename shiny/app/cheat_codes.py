@@ -60,6 +60,8 @@ class CheatCodes:
 
     def show_dialog(self) -> None:
         app = self.app
+        if not app.require_game():
+            return
         if not app.emulator.is_gba:
             app.set_status("Cheat codes work for Game Boy Advance games only.", "warning")
             return

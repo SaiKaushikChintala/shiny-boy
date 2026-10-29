@@ -1,8 +1,8 @@
 import datetime
 import sys
+import zipfile
 import zlib
 from pathlib import Path
-
 import PIL.PngImagePlugin
 
 from shiny.core.emulator.interface import EmulatorError
@@ -15,6 +15,9 @@ import mgba.core
 import mgba.image
 import mgba.rng
 import mgba.vfs
+
+
+SGB_SCREEN_X, SGB_SCREEN_Y = 48, 40
 
 
 class Emulator:
@@ -38,7 +41,9 @@ class Emulator:
         if save_path is not None:
             self._attach_save_file(Path(save_path))
 
-        dimensions = self._core.desired_video_dimensions() if self.is_gba or self._is_super_game_boy_only(rom_path) else (160, 144)
+        super_game_boy = not self.is_gba and self._is_super_game_boy_only(rom_path)
+        dimensions = self._core.desired_video_dimensions() if self.is_gba or super_game_boy else (160, 144)
+        self._visible = (SGB_SCREEN_X, SGB_SCREEN_Y, SGB_SCREEN_X + 160, SGB_SCREEN_Y + 144) if super_game_boy else None
         self._screen = mgba.image.Image(*dimensions)
         if not self.is_gba and dimensions == (160, 144):
             width, height = self._core.desired_video_dimensions()
@@ -50,12 +55,22 @@ class Emulator:
 
     @staticmethod
     def _is_super_game_boy_only(rom_path) -> bool:
+        suffix = Path(rom_path).suffix.lower()
         try:
-            with open(rom_path, "rb") as file:
-                header = file.read(0x150)
-        except OSError:
+            if zipfile.is_zipfile(rom_path):
+                with zipfile.ZipFile(rom_path) as archive:
+                    name = next((name for name in archive.namelist() if Path(name).suffix.lower() in (".gb", ".sgb", ".gbc", ".gba")), None)
+                    if name is None:
+                        return False
+                    suffix = Path(name).suffix.lower()
+                    with archive.open(name) as file:
+                        header = file.read(0x150)
+            else:
+                with open(rom_path, "rb") as file:
+                    header = file.read(0x150)
+        except (OSError, zipfile.BadZipFile):
             return False
-        return len(header) >= 0x150 and header[0x146] == 3 and not header[0x143] & 0x80 and Path(rom_path).suffix.lower() in (".gb", ".sgb")
+        return len(header) >= 0x150 and header[0x146] == 3 and not header[0x143] & 0x80 and suffix in (".gb", ".sgb")
 
     def _attach_save_file(self, save_path: Path) -> None:
         save_path.parent.mkdir(parents=True, exist_ok=True)
@@ -121,6 +136,8 @@ class Emulator:
 
     @property
     def resolution(self) -> tuple[int, int]:
+        if self._visible:
+            return 160, 144
         return self._screen.width, self._screen.height
 
     def reset(self) -> None:
@@ -135,7 +152,6 @@ class Emulator:
         if self._recording is not None:
             self._recording.extend([self._keys] * count)
         self._helpers.run_frames(count, held=self._keys)
-
 
     def start_recording(self) -> None:
         self._recording = []
@@ -172,7 +188,6 @@ class Emulator:
         except mgba.rng.RngError as error:
             raise EmulatorError(f"Cannot write to address {address:#x} ({error})") from error
 
-
     def set_video_enabled(self, enabled: bool) -> None:
         self._helpers.set_video_enabled(enabled)
 
@@ -187,10 +202,11 @@ class Emulator:
         self._core.set_keys(raw=mask)
 
     def current_image(self):
-        return self._screen.to_pil().convert("RGB")
+        image = self._screen.to_pil()
+        return (image.crop(self._visible) if self._visible else image).convert("RGB")
 
     def frame_bgrx(self) -> bytes:
-        return self._screen.to_pil().crop((0, 0, *self.resolution)).tobytes("raw", "BGRX")
+        return self._screen.to_pil().crop(self._visible or (0, 0, *self.resolution)).tobytes("raw", "BGRX")
 
     def screenshot(self, path: str | Path) -> None:
         self.current_image().save(path, format="PNG")

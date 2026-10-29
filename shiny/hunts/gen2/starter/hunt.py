@@ -3,8 +3,7 @@ from typing import Callable
 from shiny.core.emulator.buttons import Button
 from shiny.core.emulator.interface import EmulatorInterface
 from shiny.core.scan.engine import ScriptFailed
-from shiny.hunts.gen2.starter.options import OPTIONS
-from shiny.hunts.timer_hunt import TimerBot, TimerHunt
+from shiny.hunts.timer_hunt import TimerHunt
 
 STARTERS = {
     "cyndaquil": (Button.LEFT, 155),
@@ -34,21 +33,3 @@ class Gen2StarterHunt(TimerHunt):
         self._run(0, 9)
         self._run(Button.UP, 3)
         self._run(0, 1)
-
-
-class Gen2StarterBot(TimerBot):
-
-    options = OPTIONS
-
-    def state_problem(self, game):
-        if game.in_battle():
-            return "Be in the overworld first (not in a battle)."
-        if game.party_size() != 0:
-            return "You already have a Pokémon. Load a state in front of the starter first."
-        return None
-
-    def goal(self, options):
-        return f"a shiny {options['choice'].title()}"
-
-    def hunt(self, emu, game, start_state, options, log):
-        return self._hunt_timer(emu, game, start_state, Gen2StarterHunt(emu, game, start_state, options, log), options)

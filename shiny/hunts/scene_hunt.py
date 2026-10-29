@@ -30,11 +30,12 @@ class SceneHunt(TimerHunt):
         self.species = self.spec["species"]
         self.static = self.spec["kind"] == "static"
         self._streak = 0
+        self.prelude_writes: list[tuple[int, str, int, bytes]] = []
+        self._scene_frame = 0
         self.lead: int | None = options.get("lead")
         emu.set_state(start_state)
         self.party_before = game.party_size()
         super().__init__(emu, game, start_state, options, log)
-
 
     @staticmethod
     def load_targets(game: str) -> dict[str, dict]:
@@ -48,7 +49,6 @@ class SceneHunt(TimerHunt):
 
     def extra_scene(self, intro: str):
         return None
-
 
     @classmethod
     def find_target(cls, game: str, label: str) -> dict:
@@ -69,6 +69,11 @@ class SceneHunt(TimerHunt):
     def _wait(self, frames: int):
         for _ in range(frames):
             yield 0
+
+    def _write(self, name: str, data: bytes, offset: int = 0) -> None:
+        self.game.write(name, data, offset)
+        _bank, address = self.game.symbol(name)
+        self.prelude_writes.append((self._scene_frame + 1, "ram", address + offset, data))
 
     def _move_cursor(self, current: int, wanted: int):
         key = Button.DOWN if wanted > current else Button.UP
@@ -97,7 +102,6 @@ class SceneHunt(TimerHunt):
             extra = self.extra_scene(intro)
             if extra is not None:
                 yield from extra
-
 
     def choose_lead(self, start: bytes, scripted_until: int, made_at: int, given_after: int) -> int:
         if self.lead is None:
@@ -155,6 +159,7 @@ class SceneHunt(TimerHunt):
         scripted_until, given_after = None, None
         for frame in range(self.BASELINE_TIMEOUT):
             key = None
+            self._scene_frame = frame
             if scripted_until is None:
                 try:
                     key = next(scene)
@@ -181,14 +186,15 @@ class SceneHunt(TimerHunt):
     def _state_at(self, start: bytes, scripted_until: int, stop: int) -> tuple[bytes, list[int]]:
         self.emu.set_state(start)
         self._streak = 0
+        self.prelude_writes = []
         scene = self._scene()
         self.emu.start_recording()
         for frame in range(stop):
+            self._scene_frame = frame
             key = next(scene) if frame < scripted_until else None
             self._run(key if key is not None else self._a_key(frame - scripted_until), 1)
         keys = self.emu.stop_recording()
         return self.emu.get_state(), keys
-
 
     def outcome(self) -> GbPokemon | None:
         self._streak = 0

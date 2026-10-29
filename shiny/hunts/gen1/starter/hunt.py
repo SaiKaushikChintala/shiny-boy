@@ -2,8 +2,7 @@ from typing import Callable
 
 from shiny.core.emulator.buttons import Button
 from shiny.core.emulator.interface import EmulatorInterface
-from shiny.hunts.gen1.starter.options import OPTIONS, OPTIONS_YELLOW
-from shiny.hunts.timer_hunt import TimerBot, TimerHunt
+from shiny.hunts.timer_hunt import TimerHunt
 
 SPECIES = {"bulbasaur": 0x99, "charmander": 0xB0, "squirtle": 0xB1}
 PIKACHU = 0x54
@@ -49,30 +48,3 @@ class YellowPikachuHunt(Gen1StarterHunt):
         for key in YELLOW_WALK:
             self._tap(key, 20)
         self._tap(Button.UP, 20)
-
-
-class Gen1StarterBot(TimerBot):
-
-    options = OPTIONS
-
-    def state_problem(self, game):
-        if game.in_battle():
-            return "Be in the overworld first (not in a battle)."
-        return EMPTY_PARTY if game.party_size() != 0 else None
-
-    def goal(self, options):
-        return f"a {options['choice'].title()} with shiny DVs"
-
-    def hunt(self, emu, game, start_state, options, log):
-        return self._hunt_timer(emu, game, start_state, Gen1StarterHunt(emu, game, start_state, options, log), options)
-
-
-class YellowPikachuBot(Gen1StarterBot):
-
-    options = OPTIONS_YELLOW
-
-    def goal(self, options):
-        return "a Pikachu with shiny DVs"
-
-    def hunt(self, emu, game, start_state, options, log):
-        return self._hunt_timer(emu, game, start_state, YellowPikachuHunt(emu, game, start_state, options, log), options)

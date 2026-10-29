@@ -69,7 +69,6 @@ class GameBoyReader:
         self.symbols = load_symbols(self.generation)[key]
         self.name = {"POKEMON_GLD": "Gold", "POKEMON_SLV": "Silver"}.get(getattr(emulator, "title", ""), key.title())
 
-
     def symbol(self, name: str) -> tuple[int, int]:
         try:
             return self.symbols[name]
@@ -87,7 +86,6 @@ class GameBoyReader:
     def write(self, name: str, data: bytes, offset: int = 0) -> None:
         bank, address = self.symbol(name)
         self.emulator.write_bytes(address + offset, data, bank or None)
-
 
     def trainer_ids(self) -> tuple[int, None]:
         data = self.read("wPlayerID", 2)
@@ -114,7 +112,6 @@ class GameBoyReader:
     def state_name(self) -> str:
         return "Battle" if self.in_battle() else "Overworld"
 
-
     def species_name(self, species: int) -> str:
         raise NotImplementedError
 
@@ -140,7 +137,6 @@ class GameBoyReader:
         species = self.byte("wEnemyMonSpecies")
         return GbPokemon(species, self.species_name(species), (dvs[0], dvs[1]), self.generation)
 
-
     def screen_rows(self) -> list[str]:
         raw = self.read(self.tilemap_symbol, SCREEN_WIDTH * SCREEN_HEIGHT)
         return [decode_text(raw[row * SCREEN_WIDTH : (row + 1) * SCREEN_WIDTH], False) for row in range(SCREEN_HEIGHT)]
@@ -155,7 +151,6 @@ class GameBoyReader:
             if tile == CURSOR_TILE:
                 return index // SCREEN_WIDTH
         return None
-
 
     def save_in_game(self, save_data: bytes = b"") -> None:
         emu = self.emulator

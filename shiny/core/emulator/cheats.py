@@ -1,4 +1,5 @@
 from mgba import ffi, lib
+
 from shiny.core.emulator.interface import EmulatorError
 from shiny.core.emulator.mgba_backend import Emulator
 

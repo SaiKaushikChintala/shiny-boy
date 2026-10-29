@@ -10,3 +10,4 @@ screenshots/
 settings.json
 *.exe
 *.dll
+dist/

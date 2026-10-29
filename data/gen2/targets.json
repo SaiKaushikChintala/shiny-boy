@@ -14,14 +14,14 @@
     "intro": ""
    },
    "snorlax": {
-    "label": "Snorlax (Vermilion)",
+    "label": "Snorlax",
     "kind": "static",
     "species": 143,
     "intro": "",
     "variety": 12
    },
    "tyrogue": {
-    "label": "Tyrogue (Mt. Mortar)",
+    "label": "Tyrogue",
     "kind": "gift",
     "species": 236,
     "intro": "",
@@ -42,42 +42,42 @@
     "variety": 12
    },
    "prize_abra": {
-    "label": "Abra (Game Corner)",
+    "label": "Abra",
     "kind": "gift",
     "species": 63,
     "intro": "prize:0",
     "variety": 12
    },
    "prize_ekans": {
-    "label": "Ekans (Game Corner)",
+    "label": "Ekans",
     "kind": "gift",
     "species": 23,
     "intro": "prize:1",
     "variety": 12
    },
    "prize_dratini": {
-    "label": "Dratini (Game Corner)",
+    "label": "Dratini",
     "kind": "gift",
     "species": 147,
     "intro": "prize:2",
     "variety": 12
    },
    "prize_mr__mime": {
-    "label": "Mr. Mime (Game Corner)",
+    "label": "Mr. Mime",
     "kind": "gift",
     "species": 122,
     "intro": "prize:0",
     "variety": 12
    },
    "prize_eevee": {
-    "label": "Eevee (Celadon prize)",
+    "label": "Eevee",
     "kind": "gift",
     "species": 133,
     "intro": "prize:1",
     "variety": 12
    },
    "prize_porygon": {
-    "label": "Porygon (Game Corner)",
+    "label": "Porygon",
     "kind": "gift",
     "species": 137,
     "intro": "prize:2",
@@ -100,14 +100,14 @@
     "intro": ""
    },
    "snorlax": {
-    "label": "Snorlax (Vermilion)",
+    "label": "Snorlax",
     "kind": "static",
     "species": 143,
     "intro": "",
     "variety": 12
    },
    "tyrogue": {
-    "label": "Tyrogue (Mt. Mortar)",
+    "label": "Tyrogue",
     "kind": "gift",
     "species": 236,
     "intro": "",
@@ -128,42 +128,42 @@
     "variety": 12
    },
    "prize_abra": {
-    "label": "Abra (Game Corner)",
+    "label": "Abra",
     "kind": "gift",
     "species": 63,
     "intro": "prize:0",
     "variety": 12
    },
    "prize_sandshrew": {
-    "label": "Sandshrew (Game Corner)",
+    "label": "Sandshrew",
     "kind": "gift",
     "species": 27,
     "intro": "prize:1",
     "variety": 12
    },
    "prize_dratini": {
-    "label": "Dratini (Game Corner)",
+    "label": "Dratini",
     "kind": "gift",
     "species": 147,
     "intro": "prize:2",
     "variety": 12
    },
    "prize_mr__mime": {
-    "label": "Mr. Mime (Game Corner)",
+    "label": "Mr. Mime",
     "kind": "gift",
     "species": 122,
     "intro": "prize:0",
     "variety": 12
    },
    "prize_eevee": {
-    "label": "Eevee (Celadon prize)",
+    "label": "Eevee",
     "kind": "gift",
     "species": 133,
     "intro": "prize:1",
     "variety": 12
    },
    "prize_porygon": {
-    "label": "Porygon (Game Corner)",
+    "label": "Porygon",
     "kind": "gift",
     "species": 137,
     "intro": "prize:2",
@@ -192,20 +192,20 @@
     "intro": ""
    },
    "suicune_tower": {
-    "label": "Suicune (Tin Tower)",
+    "label": "Suicune",
     "kind": "static",
     "species": 245,
     "intro": "door"
    },
    "snorlax": {
-    "label": "Snorlax (Vermilion)",
+    "label": "Snorlax",
     "kind": "static",
     "species": 143,
     "intro": "",
     "variety": 12
    },
    "tyrogue": {
-    "label": "Tyrogue (Mt. Mortar)",
+    "label": "Tyrogue",
     "kind": "gift",
     "species": 236,
     "intro": "",
@@ -233,56 +233,56 @@
     "variety": 12
    },
    "eevee": {
-    "label": "Eevee (Bill's family)",
+    "label": "Eevee",
     "kind": "gift",
     "species": 133,
     "intro": "",
     "variety": 12
    },
    "dratini": {
-    "label": "Dratini (Dragon's Den)",
+    "label": "Dratini",
     "kind": "gift",
     "species": 147,
     "intro": "",
     "variety": 12
    },
    "prize_abra": {
-    "label": "Abra (Game Corner)",
+    "label": "Abra",
     "kind": "gift",
     "species": 63,
     "intro": "prize:0",
     "variety": 12
    },
    "prize_cubone": {
-    "label": "Cubone (Game Corner)",
+    "label": "Cubone",
     "kind": "gift",
     "species": 104,
     "intro": "prize:1",
     "variety": 12
    },
    "prize_wobbuffet": {
-    "label": "Wobbuffet (Game Corner)",
+    "label": "Wobbuffet",
     "kind": "gift",
     "species": 202,
     "intro": "prize:2",
     "variety": 12
    },
    "prize_pikachu": {
-    "label": "Pikachu (Game Corner)",
+    "label": "Pikachu",
     "kind": "gift",
     "species": 25,
     "intro": "prize:0",
     "variety": 12
    },
    "prize_porygon": {
-    "label": "Porygon (Game Corner)",
+    "label": "Porygon",
     "kind": "gift",
     "species": 137,
     "intro": "prize:1",
     "variety": 12
    },
    "prize_larvitar": {
-    "label": "Larvitar (Game Corner)",
+    "label": "Larvitar",
     "kind": "gift",
     "species": 246,
     "intro": "prize:2",

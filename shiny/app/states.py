@@ -45,7 +45,6 @@ class GameFiles:
         self.slot_bank = 0
         self.save_backed_up = False
 
-
     def slot_path(self, slot: int) -> Path:
         return STATES_DIRECTORY / f"{self.app.rom.stem}.slot{slot}.ss1"
 
@@ -58,6 +57,8 @@ class GameFiles:
         self.app.set_status(f"The number keys now reach slots {first} - {first + SLOTS_PER_BANK - 1}.", "info")
 
     def save_slot(self, slot: int) -> None:
+        if not self.app.require_game():
+            return
         self.app.emulator.save_state_file(self.slot_path(slot))
         self.app.set_status(f"State saved to slot {slot}.", "success")
 
@@ -101,6 +102,8 @@ class GameFiles:
             self.load_state(Path(chosen), Path(chosen).name)
 
     def save_state_to_file(self) -> None:
+        if not self.app.require_game():
+            return
         STATES_DIRECTORY.mkdir(parents=True, exist_ok=True)
         with self.dialog_open():
             chosen = filedialog.asksaveasfilename(
@@ -116,22 +119,23 @@ class GameFiles:
             self.app.set_status(f"State saved to {Path(chosen).name}.", "success")
 
     def take_screenshot(self) -> None:
+        if not self.app.require_game():
+            return
         SCREENSHOTS_DIRECTORY.mkdir(parents=True, exist_ok=True)
         path = SCREENSHOTS_DIRECTORY / f"{self.app.rom.stem}_{time.strftime('%Y-%m-%d_%H-%M-%S')}.png"
         self.app.emulator.screenshot(path)
         self.app.set_status(f"Screenshot saved: {path.name}", "success")
 
     def reset(self) -> None:
-        if self.app.bots.is_active():
+        if self.app.bots.is_active() or not self.app.require_game():
             return
         self.app.emulator.reset()
         self.app.loop.history.clear()
         self.app.set_status("Game reset.")
 
-
     def import_save(self, source: Path) -> None:
         app = self.app
-        if app.bots.is_active():
+        if app.bots.is_active() or not app.require_game():
             return
         SAVES_DIRECTORY.mkdir(parents=True, exist_ok=True)
         target = SAVES_DIRECTORY / f"{app.rom.stem}.sav"
@@ -176,6 +180,8 @@ class GameFiles:
 
     def load_save_of_any_game(self, save: Path) -> None:
         owner = self.rom_for_save(save)
+        if owner is None and not self.app.require_game():
+            return
         if owner is None or owner.resolve() == Path(self.app.rom).resolve():
             self.import_save(save)
             return
@@ -183,7 +189,6 @@ class GameFiles:
             return
         self.import_save(save)
         self.app.set_status(f"Opened {owner.name} with the save {save.name} (game reset).", "success")
-
 
     def load_rom_from_file(self) -> None:
         ROMS_DIRECTORY.mkdir(parents=True, exist_ok=True)
@@ -212,7 +217,6 @@ class GameFiles:
         app.switch_game(emulator, game, path, save_path)
         app.set_status(f"Loaded {path.name}", "success")
         return True
-
 
     def back_up_save(self) -> None:
         save_path = self.app.save_path

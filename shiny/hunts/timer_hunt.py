@@ -48,7 +48,6 @@ class TimerHunt:
         self.prelude_keys: list[int] = []
         self.snapshot = self._take_snapshot()
 
-
     def prepare(self) -> None:
         pass
 
@@ -62,7 +61,6 @@ class TimerHunt:
                 self._run(0, 10)
                 return self.game.newest_party_pokemon()
         return None
-
 
     def _run(self, key: int, frames: int) -> None:
         self.emu.set_keys(key)
@@ -107,7 +105,6 @@ class TimerHunt:
 
     def _is_wanted(self, pokemon: GbPokemon) -> bool:
         return pokemon.is_shiny and (self.species is None or pokemon.species == self.species)
-
 
     def scan(self, first_delay: int, last_delay: int) -> list[tuple[int, GbPokemon]]:
         cached = getattr(self, "_scan_cache", None)
@@ -161,4 +158,4 @@ class TimerBot(Bot):
         found = hunt.run(self.limit(options))
         if found is None:
             raise ScriptFailed(self.not_found(hunt, options))
-        return self._plan(emu, game, start_state, hunt, found, hunt.prelude_keys)
+        return self._plan(emu, game, start_state, hunt, found, hunt.prelude_keys, getattr(hunt, "prelude_writes", ()))

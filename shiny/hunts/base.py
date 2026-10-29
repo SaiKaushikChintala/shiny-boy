@@ -19,8 +19,7 @@ NOT_OVERWORLD = "Be in the overworld first (not in a menu, a battle or a cutscen
 class Bot:
     options: BotOptions
 
-
-    def problem(self, game: Gen3Reader | None) -> str | None:
+    def problem(self, game: Gen3Reader | None, options: dict | None = None) -> str | None:
         if game is None:
             return "This bot needs Pokémon Ruby, Sapphire, Emerald, FireRed or LeafGreen (the English version)."
         try:
@@ -30,6 +29,9 @@ class Bot:
 
     def state_problem(self, game: Gen3Reader) -> str | None:
         return None
+
+    def target_level(self, options: dict) -> str:
+        return self.options.target_level
 
     def goal(self, options: dict) -> str:
         return "a shiny Pokémon"
@@ -45,7 +47,6 @@ class Bot:
 
     def result(self, game: Gen3Reader, plan: dict | None = None) -> PartyPokemon:
         return game.newest_party_pokemon()
-
 
     @staticmethod
     def max_delay(nature: str | None) -> int:
@@ -68,7 +69,6 @@ class Bot:
         if options.get("targets"):
             return hunt.unreachable_message() or "The chosen Pokémon could not be reached within the wait limit."
         return f"No shiny found within {self.limit(options):,} frames of waiting."
-
 
     def _plan(
         self, emu: EmulatorInterface, game: Gen3Reader, start_state: bytes, hunt, found: HuntResult, prelude: list[int],

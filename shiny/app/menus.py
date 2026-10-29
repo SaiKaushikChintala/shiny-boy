@@ -31,7 +31,6 @@ SHORTCUTS = [
     ("F10  or  Alt + F / E / A / V / H", "Open the File / Emulation / Audio / View / Help menu"),
     ("Esc", "Leave fullscreen, or quit"),
 ]
-VOLUMES = (0, 25, 50, 75, 100)
 GAME_SIZES = range(1, 7)
 
 
@@ -73,10 +72,8 @@ class AppMenus:
 
         audio_menu = DarkMenu(window)
         audio_menu.add_checkbutton(label="Mute", accelerator="M", variable=app.muted_variable, command=app.on_mute_changed)
-        volume_menu = DarkMenu(window)
-        for percent in VOLUMES:
-            volume_menu.add_command(label=f"{percent}%", command=lambda percent=percent: app.set_volume(percent))
-        audio_menu.add_cascade(label="Volume", menu=volume_menu)
+        audio_menu.add_separator()
+        audio_menu.add_slider("Volume", app.volume_variable, command=app.set_volume)
 
         view_menu = DarkMenu(window)
         view_menu.add_checkbutton(label="Fullscreen", accelerator="F11", variable=app.fullscreen_variable, command=app.apply_fullscreen)

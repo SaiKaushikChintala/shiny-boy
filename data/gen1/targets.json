@@ -2,6 +2,24 @@
  "red": {
   "dex_event": 37,
   "targets": {
+   "starter_bulbasaur": {
+    "label": "Bulbasaur",
+    "kind": "gift",
+    "species": 153,
+    "intro": "starter"
+   },
+   "starter_charmander": {
+    "label": "Charmander",
+    "kind": "gift",
+    "species": 176,
+    "intro": "starter"
+   },
+   "starter_squirtle": {
+    "label": "Squirtle",
+    "kind": "gift",
+    "species": 177,
+    "intro": "starter"
+   },
    "articuno": {
     "label": "Articuno",
     "kind": "static",
@@ -26,34 +44,21 @@
     "species": 131,
     "intro": ""
    },
-   "snorlax12": {
-    "label": "Snorlax (Route 12)",
-    "kind": "static",
-    "species": 132,
-    "intro": "flute",
-    "item": 73
-   },
-   "snorlax16": {
-    "label": "Snorlax (Route 16)",
+   "snorlax": {
+    "label": "Snorlax",
     "kind": "static",
     "species": 132,
     "intro": "flute",
     "item": 73
    },
    "voltorb": {
-    "label": "Voltorb (Power Plant)",
+    "label": "Voltorb",
     "kind": "static",
     "species": 6,
     "intro": ""
    },
    "electrode1": {
-    "label": "Electrode 1 (Power Plant)",
-    "kind": "static",
-    "species": 141,
-    "intro": ""
-   },
-   "electrode2": {
-    "label": "Electrode 2 (Power Plant)",
+    "label": "Electrode",
     "kind": "static",
     "species": 141,
     "intro": ""
@@ -69,6 +74,12 @@
     "kind": "gift",
     "species": 19,
     "intro": ""
+   },
+   "fossil": {
+    "label": "Fossil",
+    "kind": "gift",
+    "species": null,
+    "intro": "fossil"
    },
    "hitmonlee": {
     "label": "Hitmonlee",
@@ -89,37 +100,37 @@
     "intro": ""
    },
    "prize_abra": {
-    "label": "Abra (Game Corner)",
+    "label": "Abra",
     "kind": "gift",
     "species": 148,
     "intro": "prize:0"
    },
    "prize_clefairy": {
-    "label": "Clefairy (Game Corner)",
+    "label": "Clefairy",
     "kind": "gift",
     "species": 4,
     "intro": "prize:1"
    },
    "prize_nidorina": {
-    "label": "Nidorina (Game Corner)",
+    "label": "Nidorina",
     "kind": "gift",
     "species": 168,
     "intro": "prize:2"
    },
    "prize_dratini": {
-    "label": "Dratini (Game Corner)",
+    "label": "Dratini",
     "kind": "gift",
     "species": 88,
     "intro": "prize:0"
    },
    "prize_scyther": {
-    "label": "Scyther (Game Corner)",
+    "label": "Scyther",
     "kind": "gift",
     "species": 26,
     "intro": "prize:1"
    },
    "prize_porygon": {
-    "label": "Porygon (Game Corner)",
+    "label": "Porygon",
     "kind": "gift",
     "species": 170,
     "intro": "prize:2"
@@ -129,6 +140,24 @@
  "blue": {
   "dex_event": 37,
   "targets": {
+   "starter_bulbasaur": {
+    "label": "Bulbasaur",
+    "kind": "gift",
+    "species": 153,
+    "intro": "starter"
+   },
+   "starter_charmander": {
+    "label": "Charmander",
+    "kind": "gift",
+    "species": 176,
+    "intro": "starter"
+   },
+   "starter_squirtle": {
+    "label": "Squirtle",
+    "kind": "gift",
+    "species": 177,
+    "intro": "starter"
+   },
    "articuno": {
     "label": "Articuno",
     "kind": "static",
@@ -153,34 +182,21 @@
     "species": 131,
     "intro": ""
    },
-   "snorlax12": {
-    "label": "Snorlax (Route 12)",
-    "kind": "static",
-    "species": 132,
-    "intro": "flute",
-    "item": 73
-   },
-   "snorlax16": {
-    "label": "Snorlax (Route 16)",
+   "snorlax": {
+    "label": "Snorlax",
     "kind": "static",
     "species": 132,
     "intro": "flute",
     "item": 73
    },
    "voltorb": {
-    "label": "Voltorb (Power Plant)",
+    "label": "Voltorb",
     "kind": "static",
     "species": 6,
     "intro": ""
    },
    "electrode1": {
-    "label": "Electrode 1 (Power Plant)",
-    "kind": "static",
-    "species": 141,
-    "intro": ""
-   },
-   "electrode2": {
-    "label": "Electrode 2 (Power Plant)",
+    "label": "Electrode",
     "kind": "static",
     "species": 141,
     "intro": ""
@@ -196,6 +212,12 @@
     "kind": "gift",
     "species": 19,
     "intro": ""
+   },
+   "fossil": {
+    "label": "Fossil",
+    "kind": "gift",
+    "species": null,
+    "intro": "fossil"
    },
    "hitmonlee": {
     "label": "Hitmonlee",
@@ -216,37 +238,37 @@
     "intro": ""
    },
    "prize_abra": {
-    "label": "Abra (Game Corner)",
+    "label": "Abra",
     "kind": "gift",
     "species": 148,
     "intro": "prize:0"
    },
    "prize_clefairy": {
-    "label": "Clefairy (Game Corner)",
+    "label": "Clefairy",
     "kind": "gift",
     "species": 4,
     "intro": "prize:1"
    },
    "prize_nidorino": {
-    "label": "Nidorino (Game Corner)",
+    "label": "Nidorino",
     "kind": "gift",
     "species": 167,
     "intro": "prize:2"
    },
    "prize_pinsir": {
-    "label": "Pinsir (Game Corner)",
+    "label": "Pinsir",
     "kind": "gift",
     "species": 29,
     "intro": "prize:0"
    },
    "prize_dratini": {
-    "label": "Dratini (Game Corner)",
+    "label": "Dratini",
     "kind": "gift",
     "species": 88,
     "intro": "prize:1"
    },
    "prize_porygon": {
-    "label": "Porygon (Game Corner)",
+    "label": "Porygon",
     "kind": "gift",
     "species": 170,
     "intro": "prize:2"
@@ -256,6 +278,12 @@
  "yellow": {
   "dex_event": 37,
   "targets": {
+   "starter_pikachu": {
+    "label": "Pikachu",
+    "kind": "gift",
+    "species": 84,
+    "intro": "starter"
+   },
    "articuno": {
     "label": "Articuno",
     "kind": "static",
@@ -280,34 +308,21 @@
     "species": 131,
     "intro": ""
    },
-   "snorlax12": {
-    "label": "Snorlax (Route 12)",
-    "kind": "static",
-    "species": 132,
-    "intro": "flute",
-    "item": 73
-   },
-   "snorlax16": {
-    "label": "Snorlax (Route 16)",
+   "snorlax": {
+    "label": "Snorlax",
     "kind": "static",
     "species": 132,
     "intro": "flute",
     "item": 73
    },
    "voltorb": {
-    "label": "Voltorb (Power Plant)",
+    "label": "Voltorb",
     "kind": "static",
     "species": 6,
     "intro": ""
    },
    "electrode1": {
-    "label": "Electrode 1 (Power Plant)",
-    "kind": "static",
-    "species": 141,
-    "intro": ""
-   },
-   "electrode2": {
-    "label": "Electrode 2 (Power Plant)",
+    "label": "Electrode",
     "kind": "static",
     "species": 141,
     "intro": ""
@@ -323,6 +338,12 @@
     "kind": "gift",
     "species": 19,
     "intro": ""
+   },
+   "fossil": {
+    "label": "Fossil",
+    "kind": "gift",
+    "species": null,
+    "intro": "fossil"
    },
    "hitmonlee": {
     "label": "Hitmonlee",
@@ -343,55 +364,55 @@
     "intro": ""
    },
    "bulbasaur_gift": {
-    "label": "Bulbasaur (Cerulean)",
+    "label": "Bulbasaur",
     "kind": "gift",
     "species": 153,
     "intro": ""
    },
    "charmander_gift": {
-    "label": "Charmander (Route 24)",
+    "label": "Charmander",
     "kind": "gift",
     "species": 176,
     "intro": ""
    },
    "squirtle_gift": {
-    "label": "Squirtle (Vermilion)",
+    "label": "Squirtle",
     "kind": "gift",
     "species": 177,
     "intro": ""
    },
    "prize_abra": {
-    "label": "Abra (Game Corner)",
+    "label": "Abra",
     "kind": "gift",
     "species": 148,
     "intro": "prize:0"
    },
    "prize_vulpix": {
-    "label": "Vulpix (Game Corner)",
+    "label": "Vulpix",
     "kind": "gift",
     "species": 82,
     "intro": "prize:1"
    },
    "prize_wigglytuff": {
-    "label": "Wigglytuff (Game Corner)",
+    "label": "Wigglytuff",
     "kind": "gift",
     "species": 101,
     "intro": "prize:2"
    },
    "prize_scyther": {
-    "label": "Scyther (Game Corner)",
+    "label": "Scyther",
     "kind": "gift",
     "species": 26,
     "intro": "prize:0"
    },
    "prize_pinsir": {
-    "label": "Pinsir (Game Corner)",
+    "label": "Pinsir",
     "kind": "gift",
     "species": 29,
     "intro": "prize:1"
    },
    "prize_porygon": {
-    "label": "Porygon (Game Corner)",
+    "label": "Porygon",
     "kind": "gift",
     "species": 170,
     "intro": "prize:2"

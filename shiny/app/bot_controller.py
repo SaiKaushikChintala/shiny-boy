@@ -57,7 +57,6 @@ class BotController:
         except OSError:
             return None
 
-
     def generate_targets(self) -> None:
         app = self.app
         name = self.panel.selected_bot()
@@ -67,11 +66,11 @@ class BotController:
         if not bot.options.supports_targets:
             self.panel.set_status("This bot has no table yet.", P.warning)
             return
-        problem = bot.problem(app.game)
+        options = self.panel.chosen_options()
+        problem = bot.problem(app.game, options)
         if problem is not None:
             self.refuse(problem)
             return
-        options = self.panel.chosen_options()
         if bot.options.advances_from_boot:
             self.panel.set_status("Saving, then loading the game from its start ...", P.accent)
             app.window.update_idletasks()
@@ -89,7 +88,7 @@ class BotController:
             start_rng = app.game.rng_value()
             base = app.game.advances()
             rows = targets.method1_targets(
-                start_rng, trainer_id, secret_id, max(1, self.panel.max_advance() - base), species, options["nature"], base, bot.options.target_level
+                start_rng, trainer_id, secret_id, max(1, self.panel.max_advance() - base), species, options["nature"], base, bot.target_level(options)
             )
         except EmulatorError as error:
             app.set_status(f"Could not list the Pokémon: {error}", "error")
@@ -118,7 +117,6 @@ class BotController:
         app.set_status(f"Listing the shiny Pokémon for {bot.options.name}.")
         app.window.after(POLL_MS, self.poll)
 
-
     def start_bot(self, options: dict) -> None:
         app = self.app
         if self.state is not None:
@@ -129,7 +127,7 @@ class BotController:
         bot = bots_for(app.game)[options["mode"]]
         chosen = self.panel.selected_targets() if bot.options.supports_targets else []
         if bot.options.supports_targets or bot.options.saves_first:
-            problem = bot.problem(app.game)
+            problem = bot.problem(app.game, options)
             if problem is not None:
                 self.refuse(problem)
                 return
@@ -151,7 +149,7 @@ class BotController:
 
     def start_hunt(self, bot, options: dict) -> None:
         app = self.app
-        problem = bot.problem(app.game)
+        problem = bot.problem(app.game, options)
         if problem is not None:
             self.refuse(problem)
             return
@@ -178,7 +176,6 @@ class BotController:
     def _start_process(self, target, arguments: tuple) -> None:
         self.process = multiprocessing.get_context("spawn").Process(target=target, args=arguments, daemon=False)
         self.process.start()
-
 
     def poll(self) -> None:
         if self.state not in ("hunting", "listing"):
@@ -241,7 +238,6 @@ class BotController:
     def replay_progress(self) -> float:
         return self.replay_frames / max(1, self.plan["frames"])
 
-
     def stop_bot(self) -> None:
         if self.state is not None:
             self.end("Stopped.", "warning")
@@ -260,8 +256,8 @@ class BotController:
         self.app.reset_inputs()
         self.panel.set_running(False)
         if pokemon is not None:
-            self.panel.set_status("Done.", P.success if level == "success" else P.danger)
-            self.panel.set_result(pokemon.describe(), pokemon.is_shiny)
+            self.panel.set_status("")
+            self.panel.show_result(pokemon, level == "success")
             if level == "success":
                 self.panel.set_progress(1.0)
         else:

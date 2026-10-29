@@ -29,7 +29,6 @@ class EmulationLoop:
     def restart_clock(self) -> None:
         self.last_frame_time = time.perf_counter()
 
-
     def toggle_pause(self) -> None:
         self.user_paused = not self.user_paused
         self.app.paused_variable.set(self.user_paused)
@@ -98,7 +97,6 @@ class EmulationLoop:
         self.app.set_status("Speed: maximum (no sound)." if speed == 0 else f"Speed: {speed}×" + ("" if speed == 1 else " (no sound)."))
         self.restart_clock()
         self.app.focus_game()
-
 
     def frame_budget(self, replay_fast: bool) -> tuple[int, float | None]:
         speed = self.app.speed_variable.get()
