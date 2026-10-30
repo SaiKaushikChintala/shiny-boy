@@ -45,6 +45,7 @@ class Gen2TargetBot(TimerBot):
 
     def hunt(self, emu, game, start_state, options, log):
         if options["choice"] in STARTERS:
+            emu.set_state(start_state)
             if game.party_size() != 0:
                 raise ScriptFailed("You already have a Pokémon. Load a state in front of the starter first.")
             starter = Gen2StarterHunt(emu, game, start_state, {**options, "choice": options["choice"].lower()}, log)

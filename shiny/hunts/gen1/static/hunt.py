@@ -112,10 +112,11 @@ class Gen1TargetBot(TimerBot):
     def hunt(self, emu, game, start_state, options, log):
         spec = Gen1TargetHunt.find_target(game.key, options["choice"])
         if spec["intro"] == "starter":
+            emu.set_state(start_state)
             if game.party_size() != 0:
                 raise ScriptFailed(EMPTY_PARTY)
             if game.key == "yellow":
-                hunt = YellowPikachuHunt(emu, game, start_state, options, log)
+                hunt = YellowPikachuHunt(emu, game, start_state, {**options, "choice": None}, log)
             else:
                 hunt = Gen1StarterHunt(emu, game, start_state, {**options, "choice": spec["label"].split()[0].lower()}, log)
             return self._hunt_timer(emu, game, start_state, hunt, options)
